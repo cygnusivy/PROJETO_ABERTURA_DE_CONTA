@@ -16,7 +16,6 @@ public class EnderecoController {
 
     private final EnderecoService enderecoService;
 
-
     public EnderecoController(EnderecoService enderecoService) {
         this.enderecoService = enderecoService;
     }
@@ -31,6 +30,7 @@ public class EnderecoController {
     public List<Endereco> enderecoList(){
         return this.enderecoService.listarEndereco();
     }
+
     @GetMapping("/{id}")
     public ResponseEntity selecionarProfessorById(@PathVariable("id") long idEndereco){
         Endereco endereco = this.enderecoService.selecionarEndereco(idEndereco);

@@ -1,7 +1,6 @@
 package com.example.bank_blue.service;
 
 import com.example.bank_blue.exception.ContaNaoEncontradaExcepion;
-import com.example.bank_blue.exception.EnderecoJaCadastradoException;
 import com.example.bank_blue.model.endereco.Endereco;
 import com.example.bank_blue.repository.EnderecoRepository;
 import lombok.var;
@@ -30,12 +29,8 @@ public class EnderecoService {
 
     public Endereco salvarEndereco(Endereco endereco){
         LOGGER.info("Início do método salvar - Endereco");
-//        if(!this.enderecoRepository.existsById(endereco.getId())){
             this.enderecoRepository.save(endereco);
             LOGGER.info("Endereco salvo com sucesso");
-//        }else{
-//            throw new EnderecoJaCadastradoException();
-//        }
         return endereco;
     }
 

@@ -4,11 +4,9 @@ import com.example.bank_blue.dto.DtoChange;
 import com.example.bank_blue.dto.EnderecoDto;
 import com.example.bank_blue.model.Endereco;
 import com.example.bank_blue.service.EnderecoService;
-import lombok.var;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

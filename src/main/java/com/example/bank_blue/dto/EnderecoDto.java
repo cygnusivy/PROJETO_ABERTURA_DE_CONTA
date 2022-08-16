@@ -2,7 +2,6 @@ package com.example.bank_blue.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import javax.validation.constraints.NotBlank;
 
 @Getter

@@ -1,6 +1,5 @@
 package com.example.bank_blue.dto;
 
-import com.example.bank_blue.model.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import javax.validation.constraints.NotBlank;

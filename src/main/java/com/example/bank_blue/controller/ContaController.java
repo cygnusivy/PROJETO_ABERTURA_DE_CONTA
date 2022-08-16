@@ -4,11 +4,9 @@ import com.example.bank_blue.dto.ContaDto;
 import com.example.bank_blue.dto.DtoChange;
 import com.example.bank_blue.model.Conta;
 import com.example.bank_blue.service.ContaService;
-import lombok.var;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -2,7 +2,6 @@ package com.example.bank_blue.model;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;

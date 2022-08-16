@@ -1,6 +1,5 @@
 package com.example.bank_blue.dto;
 
-import com.example.bank_blue.model.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package com.example.bank_blue.model.endereco;
+package com.example.bank_blue.model;
 
 import lombok.*;
 
@@ -15,10 +15,10 @@ public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column(name = "NUMERO")
-   // @NotBlank(message = "Campo número não pode ser nulo")
+    //@NotBlank(message = "Campo número não pode ser nulo")
     private long numero;
 
     @Column(name = "RUA")
@@ -31,7 +31,7 @@ public class Endereco {
 
     @Column(name = "CIDADE")
     @NotBlank(message = "Campo Cidade não pode ser nulo")
-    private String Cidade;
+    private String cidade;
 
     @Column(name = "UF")
     @NotBlank(message = "Campo uf não pode ser nulo")
@@ -51,7 +51,7 @@ public class Endereco {
                 "NUMERO:" + numero + "\n\r" +
                 "RUA: " + rua + "\n\r" +
                 "BAIRRO: " + bairro + "\n\r" +
-                "CIDADE: " + Cidade + "\n\r" +
+                "CIDADE: " + cidade + "\n\r" +
                 "UF: " + uf + "\n\r" +
                 "COMPLEMENTO: " + complemento + "\n\r" +
                 "CEP: " + cep;

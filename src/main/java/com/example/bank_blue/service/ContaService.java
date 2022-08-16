@@ -1,9 +1,8 @@
 package com.example.bank_blue.service;
 
-import com.example.bank_blue.exception.ClienteJaPossuiContaCadastradaException;
+import com.example.bank_blue.exception.ContaJaCadastradaException;
 import com.example.bank_blue.exception.ContaNaoEncontradaExcepion;
-import com.example.bank_blue.model.contaModel.Conta;
-import com.example.bank_blue.repository.ClienteRepository;
+import com.example.bank_blue.model.Conta;
 import com.example.bank_blue.repository.ContaRepository;
 import lombok.var;
 import org.slf4j.Logger;
@@ -16,52 +15,44 @@ import java.util.List;
 public class ContaService {
 
     private final ContaRepository contaRepository;
-    private final ClienteRepository clienteRepository;
     private final Logger LOGGER = LoggerFactory.getLogger(ContaService.class);
 
-    public ContaService(ContaRepository contaRepository, ClienteRepository clienteRepository) {
+    public ContaService(ContaRepository contaRepository) {
         this.contaRepository = contaRepository;
-        this.clienteRepository = clienteRepository;
-    }
-
-    public Conta selecionarConta(long id){
-        LOGGER.info("Selecionando Conta pelo ID {}", id);
-        return this.contaRepository.findContaById(id).orElseThrow(ContaNaoEncontradaExcepion::new);
-    }
-
-    public Conta selecionarContaByNumeroDaConta(String numeroConta){
-        LOGGER.info("Selecionando Conta pelo numeroDaConta{}", numeroConta);
-        return this.contaRepository.findContaByNumeroConta(numeroConta).orElseThrow(ContaNaoEncontradaExcepion::new);
-    }
-
-    public List<Conta> listarContas(){
-        return this.contaRepository.findAll();
     }
 
     public Conta salvarConta(Conta conta){
         LOGGER.info("Início do método salvar - Conta");
         if(!this.contaRepository.existsById(conta.getId())){
             this.contaRepository.save(conta);
-            LOGGER.info("Professor salvo com sucesso");
+            LOGGER.info("Conta salva com sucesso");
         }else{
-            throw new ClienteJaPossuiContaCadastradaException();
+            throw new ContaJaCadastradaException();
         }
-
         return conta;
     }
 
-    public Conta atualizarConta(String numero, Conta contaRequest){
+    public Conta selecionarConta(Integer id) {
+        LOGGER.info("Selecionando Conta pelo ID {}", id);
+        return this.contaRepository.findContaById(id).orElseThrow(ContaNaoEncontradaExcepion::new);
+    }
+
+    public List<Conta> listarContas(){
+        return this.contaRepository.findAll();
+    }
+
+    public Conta atualizarConta(Integer id, Conta contaRequest){
         LOGGER.info("Início do método atualizar Conta");
-        var conta = this.selecionarContaByNumeroDaConta(numero);
+        var conta = this.selecionarConta(id);
         conta.setTitular(contaRequest.getTitular());
-        this.salvarConta(conta);
+        this.contaRepository.save(conta);
         LOGGER.info("Conta atualizada com sucesso");
         return conta;
     }
 
-    public Conta deletarConta(long id){
+    public Conta deletarConta(Integer id){
         LOGGER.info("Início do metodo deletar Conta");
-        var conta = this.selecionarConta(id);
+        var conta = selecionarConta(id);
         this.contaRepository.delete(conta);
         LOGGER.info("Conta deletada com sucesso");
         return conta;

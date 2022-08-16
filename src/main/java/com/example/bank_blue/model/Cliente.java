@@ -1,6 +1,5 @@
-package com.example.bank_blue.model.clienteModel;
+package com.example.bank_blue.model;
 
-import com.example.bank_blue.model.endereco.Endereco;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -18,7 +17,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column(name = "TITULAR")
     @NotBlank(message = "Campo titular não pode ser nulo")
@@ -33,13 +32,13 @@ public class Cliente {
     private String cpfCnpj;
 
     @Column(name = "CODIGO_TIPO_CLIENTE")
-    private CodigoTipoCliente codigoTipoCliente;
+    private char codigoTipoCliente;
 
     @JoinColumn(name = "ENDERECO_ID", nullable = false)
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
-    public Cliente(String titular, String cpfCnpj, Endereco endereco, CodigoTipoCliente codigoTipoCliente) {
+    public Cliente(String titular, String cpfCnpj, Endereco endereco, char codigoTipoCliente) {
         this.titular = titular;
         this.cpfCnpj = cpfCnpj;
         this.codigoTipoCliente = codigoTipoCliente;

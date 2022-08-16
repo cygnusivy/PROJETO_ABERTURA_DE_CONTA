@@ -1,6 +1,5 @@
-package com.example.bank_blue.model.contaModel;
+package com.example.bank_blue.model;
 
-import com.example.bank_blue.model.clienteModel.Cliente;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,7 +8,6 @@ import java.math.BigDecimal;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TB_CONTA")
@@ -17,7 +15,7 @@ public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Setter
     @Column(name = "NUMERO_CONTA")
@@ -38,13 +36,17 @@ public class Conta {
     private BigDecimal saldo;
 
     @Setter
-    @Column (name = "CODIGO_TIPO_DE_CONTA")
+    @Column(name = "CODIGO_TIPO_DE_CONTA")
     @NotBlank(message = "Campo codigoTipoConta não pode ser nulo")
-    private CodigoTipoConta codigoTipoConta;
+    private String codigoTipoConta;
 
-    public Conta(Cliente titular, CodigoTipoConta codigoTipoConta){
+    public Conta(Cliente titular, String codigoTipoConta){
         this.titular = titular;
         this.codigoTipoConta = codigoTipoConta;
+    }
+
+    public BigDecimal setSaldo(BigDecimal valorDepositado){
+       return this.saldo.add(valorDepositado);
     }
 
     @Override

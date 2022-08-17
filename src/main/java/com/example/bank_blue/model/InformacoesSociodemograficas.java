@@ -19,7 +19,7 @@ public class InformacoesSociodemograficas {
     @Column
     private String genero;
 
-    @Column
+    @Column(name = "COR_RACA")
     private String corRaca;
 
     @Column(name = "ESTADO_CIVIL")

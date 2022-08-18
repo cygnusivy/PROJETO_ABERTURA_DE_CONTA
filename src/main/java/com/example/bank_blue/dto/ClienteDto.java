@@ -22,4 +22,6 @@ public class ClienteDto {
     private char codigoTipoCliente;
     @NotBlank
     private Integer endereco_id;
+    @NotBlank
+    private Integer informacoes_id;
 }

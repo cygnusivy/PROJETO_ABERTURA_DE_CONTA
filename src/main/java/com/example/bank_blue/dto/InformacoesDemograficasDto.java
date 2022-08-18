@@ -12,16 +12,12 @@ public class InformacoesDemograficasDto {
 
     @NotBlank
     private Integer id;
-
     @Column
     private String genero;
-
     @Column
     private String corRaca;
-
     @Column
     private String estadoCivil;
-
     @Column
     private String formacao;
 }

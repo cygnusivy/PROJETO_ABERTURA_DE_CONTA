@@ -37,6 +37,10 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
+    @JoinColumn(name = "INFORMACOES_ID", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    private InformacoesSociodemograficas informacoesSociodemograficas;
+
     public Cliente(String titular, String cpfCnpj, Endereco endereco, char codigoTipoCliente) {
         this.titular = titular;
         this.cpfCnpj = cpfCnpj;

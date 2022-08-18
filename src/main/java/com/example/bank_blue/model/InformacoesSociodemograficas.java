@@ -9,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "TB_INF_DEMOGRAFICAS")
+@Table(name = "TB_INF_SDEMOGRAFICAS")
 public class InformacoesSociodemograficas {
 
     @Id
